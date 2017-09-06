@@ -10,7 +10,7 @@ s.source       = {:git => 'https://github.com/CodingEverydayForFuture/JYPieChart
 s.source_files = 'YQPieChart/JYPieChart/*.{h,m}'
 s.requires_arc = true
 
-s.subspec 'JYPieChart' do |ss|
+s.subspec 'tool' do |ss|
 ss.source_files = 'YQPieChart/JYPieChart/tool/*.{h,m}'
 end
 
