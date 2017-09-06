@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'JYPieChart'
-s.version      = '1.0.0'
+s.version      = '1.0.1'
 s.summary      = 'ios JYPieChart install by cocoapods'
 s.homepage     = 'https://github.com/CodingEverydayForFuture/JYPieChart'
 s.license      = 'MIT'
