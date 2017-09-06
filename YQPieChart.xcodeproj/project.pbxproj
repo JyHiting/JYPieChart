@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0E2BFA47BEC5A10C76CEE31 /* libPods-YQPieChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B22824A7070928D7133D383 /* libPods-YQPieChart.a */; };
+		EF3FF1061F5D1D9F00D27436 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FF1051F5D1D9F00D27436 /* main.m */; };
+		EF3FF1091F5D1D9F00D27436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FF1081F5D1D9F00D27436 /* AppDelegate.m */; };
+		EF3FF10C1F5D1D9F00D27436 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FF10B1F5D1D9F00D27436 /* ViewController.m */; };
+		EF3FF10F1F5D1D9F00D27436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3FF10D1F5D1D9F00D27436 /* Main.storyboard */; };
+		EF3FF1111F5D1DA000D27436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3FF1101F5D1DA000D27436 /* Assets.xcassets */; };
+		EF3FF1141F5D1DA000D27436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3FF1121F5D1DA000D27436 /* LaunchScreen.storyboard */; };
+		EF79195D1F5FB93900650BB4 /* JYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7919571F5FB93900650BB4 /* JYPieChart.m */; };
+		EF79195E1F5FB93900650BB4 /* PieChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7919591F5FB93900650BB4 /* PieChartItem.m */; };
+		EF79195F1F5FB93900650BB4 /* UILabel+SizeToFit.m in Sources */ = {isa = PBXBuildFile; fileRef = EF79195C1F5FB93900650BB4 /* UILabel+SizeToFit.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B22824A7070928D7133D383 /* libPods-YQPieChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YQPieChart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5491F916E54B806C09255B3 /* Pods-YQPieChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQPieChart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQPieChart/Pods-YQPieChart.debug.xcconfig"; sourceTree = "<group>"; };
+		ECEC07BF59439B4D68181A1C /* Pods-YQPieChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQPieChart.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQPieChart/Pods-YQPieChart.release.xcconfig"; sourceTree = "<group>"; };
+		EF3FF1011F5D1D9F00D27436 /* YQPieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQPieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF3FF1051F5D1D9F00D27436 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF3FF1071F5D1D9F00D27436 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF3FF1081F5D1D9F00D27436 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF3FF10A1F5D1D9F00D27436 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EF3FF10B1F5D1D9F00D27436 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EF3FF10E1F5D1D9F00D27436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF3FF1101F5D1DA000D27436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF3FF1131F5D1DA000D27436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF3FF1151F5D1DA000D27436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7919561F5FB93900650BB4 /* JYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYPieChart.h; sourceTree = "<group>"; };
+		EF7919571F5FB93900650BB4 /* JYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYPieChart.m; sourceTree = "<group>"; };
+		EF7919581F5FB93900650BB4 /* PieChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartItem.h; sourceTree = "<group>"; };
+		EF7919591F5FB93900650BB4 /* PieChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartItem.m; sourceTree = "<group>"; };
+		EF79195B1F5FB93900650BB4 /* UILabel+SizeToFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SizeToFit.h"; sourceTree = "<group>"; };
+		EF79195C1F5FB93900650BB4 /* UILabel+SizeToFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SizeToFit.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF3FF0FE1F5D1D9F00D27436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0E2BFA47BEC5A10C76CEE31 /* libPods-YQPieChart.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EDB4E194E4B162BF420AE6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5491F916E54B806C09255B3 /* Pods-YQPieChart.debug.xcconfig */,
+				ECEC07BF59439B4D68181A1C /* Pods-YQPieChart.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E7C3A39EE9CE7216DE3EC3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B22824A7070928D7133D383 /* libPods-YQPieChart.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF3FF0F81F5D1D9F00D27436 = {
+			isa = PBXGroup;
+			children = (
+				EF3FF1031F5D1D9F00D27436 /* YQPieChart */,
+				EF3FF1021F5D1D9F00D27436 /* Products */,
+				0EDB4E194E4B162BF420AE6D /* Pods */,
+				8E7C3A39EE9CE7216DE3EC3D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EF3FF1021F5D1D9F00D27436 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FF1011F5D1D9F00D27436 /* YQPieChart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF3FF1031F5D1D9F00D27436 /* YQPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				EF7919551F5FB93900650BB4 /* JYPieChart */,
+				EF3FF1071F5D1D9F00D27436 /* AppDelegate.h */,
+				EF3FF1081F5D1D9F00D27436 /* AppDelegate.m */,
+				EF3FF10A1F5D1D9F00D27436 /* ViewController.h */,
+				EF3FF10B1F5D1D9F00D27436 /* ViewController.m */,
+				EF3FF10D1F5D1D9F00D27436 /* Main.storyboard */,
+				EF3FF1101F5D1DA000D27436 /* Assets.xcassets */,
+				EF3FF1121F5D1DA000D27436 /* LaunchScreen.storyboard */,
+				EF3FF1151F5D1DA000D27436 /* Info.plist */,
+				EF3FF1041F5D1D9F00D27436 /* Supporting Files */,
+			);
+			path = YQPieChart;
+			sourceTree = "<group>";
+		};
+		EF3FF1041F5D1D9F00D27436 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FF1051F5D1D9F00D27436 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF7919551F5FB93900650BB4 /* JYPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				EF7919561F5FB93900650BB4 /* JYPieChart.h */,
+				EF7919571F5FB93900650BB4 /* JYPieChart.m */,
+				EF7919581F5FB93900650BB4 /* PieChartItem.h */,
+				EF7919591F5FB93900650BB4 /* PieChartItem.m */,
+				EF79195A1F5FB93900650BB4 /* tool */,
+			);
+			path = JYPieChart;
+			sourceTree = "<group>";
+		};
+		EF79195A1F5FB93900650BB4 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				EF79195B1F5FB93900650BB4 /* UILabel+SizeToFit.h */,
+				EF79195C1F5FB93900650BB4 /* UILabel+SizeToFit.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF3FF1001F5D1D9F00D27436 /* YQPieChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF3FF1181F5D1DA000D27436 /* Build configuration list for PBXNativeTarget "YQPieChart" */;
+			buildPhases = (
+				519A408725FC11322F45B64E /* [CP] Check Pods Manifest.lock */,
+				EF3FF0FD1F5D1D9F00D27436 /* Sources */,
+				EF3FF0FE1F5D1D9F00D27436 /* Frameworks */,
+				EF3FF0FF1F5D1D9F00D27436 /* Resources */,
+				17931B2BED8CC4813F9CE94F /* [CP] Embed Pods Frameworks */,
+				D591B16F98B467602FD90D8C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YQPieChart;
+			productName = YQPieChart;
+			productReference = EF3FF1011F5D1D9F00D27436 /* YQPieChart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF3FF0F91F5D1D9F00D27436 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = YunQue;
+				TargetAttributes = {
+					EF3FF1001F5D1D9F00D27436 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = KKT5X966GB;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EF3FF0FC1F5D1D9F00D27436 /* Build configuration list for PBXProject "YQPieChart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF3FF0F81F5D1D9F00D27436;
+			productRefGroup = EF3FF1021F5D1D9F00D27436 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF3FF1001F5D1D9F00D27436 /* YQPieChart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF3FF0FF1F5D1D9F00D27436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF3FF1141F5D1DA000D27436 /* LaunchScreen.storyboard in Resources */,
+				EF3FF1111F5D1DA000D27436 /* Assets.xcassets in Resources */,
+				EF3FF10F1F5D1D9F00D27436 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17931B2BED8CC4813F9CE94F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YQPieChart/Pods-YQPieChart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		519A408725FC11322F45B64E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D591B16F98B467602FD90D8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YQPieChart/Pods-YQPieChart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF3FF0FD1F5D1D9F00D27436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF79195F1F5FB93900650BB4 /* UILabel+SizeToFit.m in Sources */,
+				EF3FF10C1F5D1D9F00D27436 /* ViewController.m in Sources */,
+				EF3FF1091F5D1D9F00D27436 /* AppDelegate.m in Sources */,
+				EF79195D1F5FB93900650BB4 /* JYPieChart.m in Sources */,
+				EF3FF1061F5D1D9F00D27436 /* main.m in Sources */,
+				EF79195E1F5FB93900650BB4 /* PieChartItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EF3FF10D1F5D1D9F00D27436 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF3FF10E1F5D1D9F00D27436 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF3FF1121F5D1DA000D27436 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF3FF1131F5D1DA000D27436 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF3FF1161F5D1DA000D27436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF3FF1171F5D1DA000D27436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF3FF1191F5D1DA000D27436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5491F916E54B806C09255B3 /* Pods-YQPieChart.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KKT5X966GB;
+				INFOPLIST_FILE = YQPieChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunque.YQPieChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF3FF11A1F5D1DA000D27436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECEC07BF59439B4D68181A1C /* Pods-YQPieChart.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KKT5X966GB;
+				INFOPLIST_FILE = YQPieChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunque.YQPieChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF3FF0FC1F5D1D9F00D27436 /* Build configuration list for PBXProject "YQPieChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF3FF1161F5D1DA000D27436 /* Debug */,
+				EF3FF1171F5D1DA000D27436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF3FF1181F5D1DA000D27436 /* Build configuration list for PBXNativeTarget "YQPieChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF3FF1191F5D1DA000D27436 /* Debug */,
+				EF3FF11A1F5D1DA000D27436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF3FF0F91F5D1D9F00D27436 /* Project object */;
+}
