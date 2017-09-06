@@ -274,7 +274,10 @@
         
         if (CGRectContainsPoint([obj CGRectValue], location)) {
             
-            self.itemTitleClick([_valueArr objectAtIndex:idx]);
+            if (self.itemTitleClick) {
+               
+                self.itemTitleClick([_valueArr objectAtIndex:idx]);
+            }
         }
     }];
     //计算触摸点到中心点距离
@@ -296,7 +299,10 @@
     [maybeClickedRegion enumerateObjectsUsingBlock:^(SectorItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (rads >= obj.startAngle && rads < obj.endAngle) {
             //所点击的扇形
-            self.sectorClick(obj.currentClickedItem);
+            if (self.sectorClick) {
+              
+                self.sectorClick(obj.currentClickedItem);
+            }
         }
     }];
     
