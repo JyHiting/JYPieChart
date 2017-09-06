@@ -9,8 +9,12 @@ s.platform     = :ios, '7.0'
 s.source       = {:git => 'https://github.com/CodingEverydayForFuture/JYPieChart.git', :tag => s.version}
 s.source_files = 'YQPieChart/JYPieChart/*.{h,m}'
 s.requires_arc = true
-end
 
 s.subspec 'JYPieChart' do |ss|
 ss.source_files = 'YQPieChart/JYPieChart/tool/*.{h,m}'
 end
+
+
+end
+
+
