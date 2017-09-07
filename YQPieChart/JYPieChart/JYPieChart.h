@@ -29,8 +29,7 @@ typedef NS_ENUM(NSInteger,PieChartType){
 @property(nonatomic,strong)UIColor *centerCircleBgColor;
 //饼状图数据
 @property(nonatomic,strong)NSArray<JYPieChartItem *> *valueArr;
-//每一项数据展示标题的样式
-@property(nonatomic,strong)NSDictionary *itemTitleAttributesDic;
+
 //每一项标题点击事件
 @property(nonatomic,copy)void(^itemTitleClick)(JYPieChartItem *pieChartItem);
 //每一个扇形点击触发的事件

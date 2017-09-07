@@ -59,9 +59,7 @@
     
 
     _centerCircleRadius = 30;
-    _centerCircleBgColor = [UIColor whiteColor];
-    _itemTitleAttributesDic = [NSDictionary dictionaryWithObjects:@[[UIFont systemFontOfSize:13],[UIColor lightGrayColor]] forKeys:@[NSFontAttributeName,NSForegroundColorAttributeName]];
-    
+    _centerCircleBgColor = [UIColor whiteColor];    
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -165,7 +163,7 @@
         CGContextDrawPath(ctx, kCGPathStroke);
         
         //item标题
-        [pieCharItem.name drawInRect:titleRect withAttributes:_itemTitleAttributesDic];
+        [pieCharItem.name drawInRect:titleRect withAttributes:pieCharItem.itemTitleAttributesDic];
         [_titlesRectArr addObject:[NSValue valueWithCGRect:titleRect]];
         
         //是否展示中心圆
@@ -221,12 +219,6 @@
 -(void)setValueArr:(NSArray *)valueArr{
 
     _valueArr = valueArr;
-    [self setNeedsDisplay];
-}
-
--(void)setItemTitleAttributesDic:(NSDictionary *)itemTitleAttributesDic{
-
-    _itemTitleAttributesDic = itemTitleAttributesDic;
     [self setNeedsDisplay];
 }
 

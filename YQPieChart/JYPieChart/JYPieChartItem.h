@@ -24,4 +24,6 @@
 @property(nonatomic,assign)CGFloat line2_lenght;
 //折线第二段的背景色
 @property(nonatomic,strong)UIColor *line2BgColor;
+//每一项数据展示标题的样式
+@property(nonatomic,strong)NSDictionary *itemTitleAttributesDic;
 @end
