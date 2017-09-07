@@ -15,7 +15,7 @@
 		EF3FF1111F5D1DA000D27436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3FF1101F5D1DA000D27436 /* Assets.xcassets */; };
 		EF3FF1141F5D1DA000D27436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3FF1121F5D1DA000D27436 /* LaunchScreen.storyboard */; };
 		EF79195D1F5FB93900650BB4 /* JYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7919571F5FB93900650BB4 /* JYPieChart.m */; };
-		EF79195E1F5FB93900650BB4 /* PieChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7919591F5FB93900650BB4 /* PieChartItem.m */; };
+		EF79195E1F5FB93900650BB4 /* JYPieChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7919591F5FB93900650BB4 /* JYPieChartItem.m */; };
 		EF79195F1F5FB93900650BB4 /* UILabel+SizeToFit.m in Sources */ = {isa = PBXBuildFile; fileRef = EF79195C1F5FB93900650BB4 /* UILabel+SizeToFit.m */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +35,8 @@
 		EF3FF1151F5D1DA000D27436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF7919561F5FB93900650BB4 /* JYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYPieChart.h; sourceTree = "<group>"; };
 		EF7919571F5FB93900650BB4 /* JYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYPieChart.m; sourceTree = "<group>"; };
-		EF7919581F5FB93900650BB4 /* PieChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartItem.h; sourceTree = "<group>"; };
-		EF7919591F5FB93900650BB4 /* PieChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartItem.m; sourceTree = "<group>"; };
+		EF7919581F5FB93900650BB4 /* JYPieChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYPieChartItem.h; sourceTree = "<group>"; };
+		EF7919591F5FB93900650BB4 /* JYPieChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYPieChartItem.m; sourceTree = "<group>"; };
 		EF79195B1F5FB93900650BB4 /* UILabel+SizeToFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SizeToFit.h"; sourceTree = "<group>"; };
 		EF79195C1F5FB93900650BB4 /* UILabel+SizeToFit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SizeToFit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,8 +118,8 @@
 			children = (
 				EF7919561F5FB93900650BB4 /* JYPieChart.h */,
 				EF7919571F5FB93900650BB4 /* JYPieChart.m */,
-				EF7919581F5FB93900650BB4 /* PieChartItem.h */,
-				EF7919591F5FB93900650BB4 /* PieChartItem.m */,
+				EF7919581F5FB93900650BB4 /* JYPieChartItem.h */,
+				EF7919591F5FB93900650BB4 /* JYPieChartItem.m */,
 				EF79195A1F5FB93900650BB4 /* tool */,
 			);
 			path = JYPieChart;
@@ -262,7 +262,7 @@
 				EF3FF1091F5D1D9F00D27436 /* AppDelegate.m in Sources */,
 				EF79195D1F5FB93900650BB4 /* JYPieChart.m in Sources */,
 				EF3FF1061F5D1D9F00D27436 /* main.m in Sources */,
-				EF79195E1F5FB93900650BB4 /* PieChartItem.m in Sources */,
+				EF79195E1F5FB93900650BB4 /* JYPieChartItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

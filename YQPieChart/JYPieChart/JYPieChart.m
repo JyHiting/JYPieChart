@@ -14,7 +14,7 @@
 @property(nonatomic,assign)CGFloat itemRadius;
 @property(nonatomic,assign)CGFloat startAngle;
 @property(nonatomic,assign)CGFloat endAngle;
-@property(nonatomic,weak)PieChartItem *currentClickedItem;
+@property(nonatomic,weak)JYPieChartItem *currentClickedItem;
 
 @end
 
@@ -57,11 +57,7 @@
     _sectorItemArr = [NSMutableArray array];
     _titlesRectArr = [NSMutableArray array];
     
-    _line1_lenght = 10;
-    _line2_lenght = 15;
-    _line_width = 0.5;
-    _line1BgColor = [UIColor darkTextColor];
-    _line2BgColor = [UIColor darkTextColor];
+
     _centerCircleRadius = 30;
     _centerCircleBgColor = [UIColor whiteColor];
     _itemTitleAttributesDic = [NSDictionary dictionaryWithObjects:@[[UIFont systemFontOfSize:13],[UIColor lightGrayColor]] forKeys:@[NSFontAttributeName,NSForegroundColorAttributeName]];
@@ -80,7 +76,7 @@
     
     //逆时针绘图
     NSMutableArray *itemValueArr = [NSMutableArray array];
-    [_valueArr enumerateObjectsUsingBlock:^(PieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         [itemValueArr addObject:@(obj.value)];
     }];
@@ -90,9 +86,9 @@
     CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];
     
     __block CGFloat stepSize = 0;
-    [_valueArr enumerateObjectsUsingBlock:^(PieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        PieChartItem *pieCharItem = [_valueArr objectAtIndex:idx];
+        JYPieChartItem *pieCharItem = [_valueArr objectAtIndex:idx];
         
         CGFloat itemRadius = 0;
         //绘制扇形
@@ -129,13 +125,13 @@
         
         //绘制折线
         CGPoint lineBeginPoint = CGPointMake(centerX + itemRadius *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + itemRadius *sinf(stepSize + 2 * M_PI * piePercent / 2));
-        CGPoint lineMiddlePoint = CGPointMake(centerX + (itemRadius + _line1_lenght) *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + (itemRadius + _line1_lenght) *sinf(stepSize + 2 * M_PI * piePercent / 2));
+        CGPoint lineMiddlePoint = CGPointMake(centerX + (itemRadius + pieCharItem.line1_lenght) *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + (itemRadius + pieCharItem.line1_lenght) *sinf(stepSize + 2 * M_PI * piePercent / 2));
         CGPoint lineEndPoint;
         CGRect titleRect;
         if (lineMiddlePoint.x > centerX) {
             
             //折线在中心轴右边
-            lineEndPoint = CGPointMake(lineMiddlePoint.x + _line2_lenght, lineMiddlePoint.y);
+            lineEndPoint = CGPointMake(lineMiddlePoint.x + pieCharItem.line2_lenght, lineMiddlePoint.y);
             
             UILabel *title = [UILabel new];
             title.font = [UIFont systemFontOfSize:15];
@@ -146,7 +142,7 @@
         }else{
         
             //折线在中心轴左边
-            lineEndPoint = CGPointMake(lineMiddlePoint.x - _line2_lenght, lineMiddlePoint.y);
+            lineEndPoint = CGPointMake(lineMiddlePoint.x - pieCharItem.line2_lenght, lineMiddlePoint.y);
             
             UILabel *title = [UILabel new];
             title.font = [UIFont systemFontOfSize:15];
@@ -156,14 +152,14 @@
             titleRect = CGRectMake(lineEndPoint.x - titleWidth, lineEndPoint.y - titleHeight / 2, titleWidth, titleHeight);
         }
         
-        [_line1BgColor setStroke];
-        CGContextSetLineWidth(ctx, _line_width);
+        [pieCharItem.line1BgColor setStroke];
+        CGContextSetLineWidth(ctx, pieCharItem.line_width);
         CGContextMoveToPoint(ctx,lineBeginPoint.x,lineBeginPoint.y);
         CGContextAddLineToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
 
         CGContextDrawPath(ctx, kCGPathStroke);
-        [_line2BgColor setStroke];
-        CGContextSetLineWidth(ctx, _line_width);
+        [pieCharItem.line2BgColor setStroke];
+        CGContextSetLineWidth(ctx, pieCharItem.line_width);
         CGContextMoveToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
         CGContextAddLineToPoint(ctx,lineEndPoint.x,lineEndPoint.y);
         CGContextDrawPath(ctx, kCGPathStroke);
@@ -215,25 +211,6 @@
     }];
 }
 
--(void)setLine_width:(CGFloat)line_width{
-
-    _line_width = line_width;
-    [self setNeedsDisplay];
-}
-
--(void)setLine1BgColor:(UIColor *)line1BgColor{
-
-    _line1BgColor = line1BgColor;
-    [self setNeedsDisplay];
-}
-
--(void)setLine2BgColor:(UIColor *)line2BgColor{
-    
-    _line2BgColor = line2BgColor;
-    [self setNeedsDisplay];
-}
-
-
 
 -(void)setIsShowCenterCircle:(BOOL)isShowCenterCircle{
 
@@ -252,19 +229,6 @@
     _itemTitleAttributesDic = itemTitleAttributesDic;
     [self setNeedsDisplay];
 }
-
--(void)setLine1_lenght:(CGFloat)line1_lenght{
-
-    _line1_lenght = line1_lenght;
-    [self setNeedsDisplay];
-}
-
--(void)setLine2_lenght:(CGFloat)line2_lenght{
-
-    _line2_lenght = line2_lenght;
-    [self setNeedsDisplay];
-}
-
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 

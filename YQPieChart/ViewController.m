@@ -10,7 +10,7 @@
 #import "JYPieChart.h"
 
 #import <Masonry.h>
-#import "PieChartItem.h"
+#import "JYPieChartItem.h"
 
 @interface ViewController ()
 
@@ -24,11 +24,11 @@
     
     JYPieChart *pieChart1 = [JYPieChart new];
     pieChart1.backgroundColor = [UIColor yellowColor];
-    pieChart1.itemTitleClick = ^(PieChartItem *pieChartItem) {
+    pieChart1.itemTitleClick = ^(JYPieChartItem *pieChartItem) {
       
         NSLog(@"标题点击____________%@",pieChartItem);
     };
-    pieChart1.sectorClick = ^(PieChartItem *pieChartItem) {
+    pieChart1.sectorClick = ^(JYPieChartItem *pieChartItem) {
        
         NSLog(@"扇形区域点击____________%@",pieChartItem);
     };
@@ -38,7 +38,7 @@
     NSMutableArray *itemArr = [NSMutableArray array];
     for (int index = 0; index < 5; index ++) {
         
-        PieChartItem *item = [PieChartItem new];
+        JYPieChartItem *item = [JYPieChartItem new];
         item.value = 100 + index * 5;
         item.name = [NSString stringWithFormat:@"测试%d",index];
         item.sectorBgColor = [self randomColor];
@@ -60,7 +60,7 @@
     NSMutableArray *itemArr2 = [NSMutableArray array];
     for (int index = 0; index < 5; index ++) {
         
-        PieChartItem *item = [PieChartItem new];
+        JYPieChartItem *item = [JYPieChartItem new];
         item.value = 100 + index * 5;
         item.name = [NSString stringWithFormat:@"测试%d",index];
         item.sectorBgColor = [self randomColor];
