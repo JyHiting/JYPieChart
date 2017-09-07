@@ -70,7 +70,7 @@
     CGFloat selfWidth = CGRectGetWidth(rect);
     CGFloat selfHeight = CGRectGetHeight(rect);
     CGFloat minWidth = selfWidth > selfHeight ?selfHeight:selfWidth;
-    CGFloat radius = (minWidth / 2) *  2 / 3;
+    CGFloat radius = minWidth / 2;
     
     //逆时针绘图
     NSMutableArray *itemValueArr = [NSMutableArray array];
