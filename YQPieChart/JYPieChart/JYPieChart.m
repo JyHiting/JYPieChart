@@ -209,6 +209,11 @@
     }];
 }
 
+-(void)setCenterCircleRadius:(CGFloat)centerCircleRadius{
+
+    _centerCircleRadius = centerCircleRadius;
+    [self setNeedsDisplay];
+}
 
 -(void)setIsShowCenterCircle:(BOOL)isShowCenterCircle{
 
