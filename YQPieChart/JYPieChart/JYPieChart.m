@@ -58,7 +58,7 @@
     _titlesRectArr = [NSMutableArray array];
     
 
-    _centerCircleRadius = 30;
+    _centerCircleRadius = 20;
     _centerCircleBgColor = [UIColor whiteColor];    
 }
 
@@ -80,9 +80,8 @@
     }];
     
     CGFloat sumTotal = [[itemValueArr valueForKeyPath:@"@sum.floatValue"] floatValue];
-    CGFloat maxItemValue = [[itemValueArr valueForKeyPath:@"@max.floatValue"] floatValue];
-    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];
-    
+//    CGFloat maxItemValue = [[itemValueArr valueForKeyPath:@"@max.floatValue"] floatValue];
+//    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];    
     __block CGFloat stepSize = 0;
     [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -95,22 +94,6 @@
         CGFloat piePercent = obj.value / sumTotal;
         itemRadius = radius * pieCharItem.radiusRate;
 
-//        switch (_pieChartType) {
-//                case PieChartTypeNormal:{
-//                    
-//                    //普通饼状图
-//                    itemRadius = radius * pieCharItem.radiusRate;
-//                }
-//                break;
-//                case PieChartTypeNightingale:{
-//                
-//                    //南丁格尔饼状图
-//                    itemRadius = pieCharItem.radiusRate * radius * (obj.value / maxItemValue);
-//                }
-//                break;
-//            default:
-//                break;
-//        }
         CGContextAddArc(ctx, centerX, centerY, itemRadius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
         SectorItem *sectorItem = [SectorItem new];
         sectorItem.itemRadius = itemRadius;
