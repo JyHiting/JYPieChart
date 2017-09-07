@@ -20,6 +20,7 @@
         _line1BgColor = [UIColor darkTextColor];
         _line2BgColor = [UIColor darkTextColor];
         _itemTitleAttributesDic = [NSDictionary dictionaryWithObjects:@[[UIFont systemFontOfSize:13],[UIColor lightGrayColor]] forKeys:@[NSFontAttributeName,NSForegroundColorAttributeName]];
+        _radiusRate = 1.0;
     }
     return self;
 }

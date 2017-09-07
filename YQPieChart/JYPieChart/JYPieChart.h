@@ -35,5 +35,4 @@ typedef NS_ENUM(NSInteger,PieChartType){
 //每一个扇形点击触发的事件
 @property(nonatomic,copy)void(^sectorClick)(JYPieChartItem *pieChartItem);
 
-
 @end

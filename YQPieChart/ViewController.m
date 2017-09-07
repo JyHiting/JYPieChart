@@ -33,7 +33,6 @@
         NSLog(@"扇形区域点击____________%@",pieChartItem);
     };
     pieChart1.isShowCenterCircle = YES;
-    pieChart1.centerCircleRadius = 35;
     pieChart1.pieChartType = PieChartTypeNightingale;
     NSMutableArray *itemArr = [NSMutableArray array];
     for (int index = 0; index < 5; index ++) {
@@ -64,6 +63,7 @@
         item.value = 100 + index * 5;
         item.name = [NSString stringWithFormat:@"测试%d",index];
         item.sectorBgColor = [self randomColor];
+        item.radiusRate = 0.5 + 0.1 * index;
         [itemArr2 addObject:item];
     }
     pieChart2.valueArr = itemArr2;

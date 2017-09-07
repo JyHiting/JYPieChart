@@ -26,4 +26,7 @@
 @property(nonatomic,strong)UIColor *line2BgColor;
 //每一项数据展示标题的样式
 @property(nonatomic,strong)NSDictionary *itemTitleAttributesDic;
+//绘制南丁格尔图时各个区域的半径所在比率
+@property(nonatomic,assign)float radiusRate;
+
 @end

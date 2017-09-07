@@ -97,13 +97,13 @@
                 case PieChartTypeNormal:{
                     
                     //普通饼状图
-                    itemRadius = radius;
+                    itemRadius = radius * pieCharItem.radiusRate;
                 }
                 break;
                 case PieChartTypeNightingale:{
                 
                     //南丁格尔饼状图
-                    itemRadius = radius * (obj.value / maxItemValue);
+                    itemRadius = pieCharItem.radiusRate * radius * (obj.value / maxItemValue);
                 }
                 break;
             default:
