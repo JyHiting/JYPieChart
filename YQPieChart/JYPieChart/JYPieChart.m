@@ -93,22 +93,24 @@
         CGContextSetLineWidth(ctx, 0);
         CGContextMoveToPoint(ctx, centerX, centerY);
         CGFloat piePercent = obj.value / sumTotal;
-        switch (_pieChartType) {
-                case PieChartTypeNormal:{
-                    
-                    //普通饼状图
-                    itemRadius = radius * pieCharItem.radiusRate;
-                }
-                break;
-                case PieChartTypeNightingale:{
-                
-                    //南丁格尔饼状图
-                    itemRadius = pieCharItem.radiusRate * radius * (obj.value / maxItemValue);
-                }
-                break;
-            default:
-                break;
-        }
+        itemRadius = radius * pieCharItem.radiusRate;
+
+//        switch (_pieChartType) {
+//                case PieChartTypeNormal:{
+//                    
+//                    //普通饼状图
+//                    itemRadius = radius * pieCharItem.radiusRate;
+//                }
+//                break;
+//                case PieChartTypeNightingale:{
+//                
+//                    //南丁格尔饼状图
+//                    itemRadius = pieCharItem.radiusRate * radius * (obj.value / maxItemValue);
+//                }
+//                break;
+//            default:
+//                break;
+//        }
         CGContextAddArc(ctx, centerX, centerY, itemRadius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
         SectorItem *sectorItem = [SectorItem new];
         sectorItem.itemRadius = itemRadius;
@@ -175,7 +177,7 @@
                     case PieChartTypeNormal:{
                         
                         //普通饼状图
-                        if (_centerCircleRadius >= radius) {
+                        if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
                            
                             CGContextAddArc(ctx, centerX, centerY, radius - 10, 0, 2 *M_PI, 0);
                             
@@ -188,9 +190,9 @@
                     case PieChartTypeNightingale:{
                         
                         //南丁格尔饼状图
-                        if (_centerCircleRadius >= (radius * (minItemValue / maxItemValue))) {
+                        if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
                             
-                            CGContextAddArc(ctx, centerX, centerY, radius * (minItemValue / maxItemValue) - 10, 0, 2 *M_PI, 0);
+                            CGContextAddArc(ctx, centerX, centerY, radius * pieCharItem.radiusRate - 10, 0, 2 *M_PI, 0);
                             
                         }else{
                             
