@@ -70,8 +70,8 @@
     CGFloat selfWidth = CGRectGetWidth(rect);
     CGFloat selfHeight = CGRectGetHeight(rect);
     CGFloat minWidth = selfWidth > selfHeight ?selfHeight:selfWidth;
-    CGFloat radius = minWidth / 2;
-    
+    CGFloat radius = (minWidth / 2) * 0.8;
+
     //逆时针绘图
     NSMutableArray *itemValueArr = [NSMutableArray array];
     [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
