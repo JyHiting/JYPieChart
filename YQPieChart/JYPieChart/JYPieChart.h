@@ -23,6 +23,10 @@ typedef NS_ENUM(NSInteger,PieChartType){
 
 //是否展示中心圆
 @property(nonatomic,assign)BOOL isShowCenterCircle;
+//中心圆展示文档(在isShowCenterCircle为true的情况下有效)
+@property(nonatomic,copy)NSString *centerCircleTitle;
+//中心圆文档字体样式
+@property(nonatomic,strong)NSDictionary *centerTitleAttributesDic;
 //中心圆的半径
 @property(nonatomic,assign)CGFloat centerCircleRadius;
 //中心圆的背景色

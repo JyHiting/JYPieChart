@@ -33,6 +33,7 @@
         NSLog(@"扇形区域点击____________%@",pieChartItem);
     };
     pieChart1.isShowCenterCircle = YES;
+    pieChart1.centerCircleTitle = @"80%";
     pieChart1.pieChartType = PieChartTypeNightingale;
     NSMutableArray *itemArr = [NSMutableArray array];
     for (int index = 0; index < 5; index ++) {
