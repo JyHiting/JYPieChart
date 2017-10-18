@@ -199,83 +199,77 @@
             
         }];
     }
+}
+
+-(void)setCenterTitleAttributesDic:(NSDictionary *)centerTitleAttributesDic{
     
-    -(void)setCenterTitleAttributesDic:(NSDictionary *)centerTitleAttributesDic{
-        
-        _centerTitleAttributesDic = centerTitleAttributesDic;
-        [self setNeedsDisplay];
-    }
+    _centerTitleAttributesDic = centerTitleAttributesDic;
+    [self setNeedsDisplay];
+}
+
+-(void)setCenterCircleTitle:(NSString *)centerCircleTitle{
     
-    -(void)setCenterCircleTitle:(NSString *)centerCircleTitle{
+    _centerCircleTitle = centerCircleTitle;
+    [self setNeedsDisplay];
+}
+
+-(void)setCenterCircleRadius:(CGFloat)centerCircleRadius{
+
+    _centerCircleRadius = centerCircleRadius;
+    [self setNeedsDisplay];
+}
+
+-(void)setIsShowCenterCircle:(BOOL)isShowCenterCircle{
+
+    _isShowCenterCircle = isShowCenterCircle;
+    [self setNeedsDisplay];
+}
+
+-(void)setValueArr:(NSArray *)valueArr{
+
+    _valueArr = valueArr;
+    [self setNeedsDisplay];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:self];
+    [_titlesRectArr enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        _centerCircleTitle = centerCircleTitle;
-        [self setNeedsDisplay];
-    }
-    
-    -(void)setCenterCircleRadius:(CGFloat)centerCircleRadius{
-        
-        _centerCircleRadius = centerCircleRadius;
-        [self setNeedsDisplay];
-    }
-    
-    -(void)setIsShowCenterCircle:(BOOL)isShowCenterCircle{
-        
-        _isShowCenterCircle = isShowCenterCircle;
-        [self setNeedsDisplay];
-    }
-    
-    -(void)setValueArr:(NSArray *)valueArr{
-        
-        _valueArr = valueArr;
-        [self setNeedsDisplay];
-    }
-    
-    -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-        
-        UITouch *touch = [[event allTouches] anyObject];
-        CGPoint location = [touch locationInView:self];
-        [_titlesRectArr enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (CGRectContainsPoint([obj CGRectValue], location)) {
             
-            if (CGRectContainsPoint([obj CGRectValue], location)) {
-                
-                if (self.itemTitleClick) {
-                    
-                    self.itemTitleClick([_valueArr objectAtIndex:idx]);
-                }
+            if (self.itemTitleClick) {
+               
+                self.itemTitleClick([_valueArr objectAtIndex:idx]);
             }
-        }];
-        //计算触摸点到中心点距离
-        CGFloat centerX = CGRectGetMidX(self.bounds);
-        CGFloat centerY = CGRectGetMidY(self.bounds);
-        CGFloat toCenterDistance = sqrt(pow((location.x - centerX), 2) + pow((location.y - centerY), 2));
-        NSMutableArray *maybeClickedRegion = [NSMutableArray array];
-        [_sectorItemArr enumerateObjectsUsingBlock:^(SectorItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (toCenterDistance <= obj.itemRadius) {
-                [maybeClickedRegion addObject:obj];
-            }
-        }];
-        //计算触摸点和中心点连线的角度
-        CGFloat rads = acos((location.x - centerX) / toCenterDistance);
-        if (location.y < centerY) {
-            
-            rads = 2 * M_PI - rads;
         }
-        [maybeClickedRegion enumerateObjectsUsingBlock:^(SectorItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (rads >= obj.startAngle && rads < obj.endAngle) {
-                //所点击的扇形
-                if (self.sectorClick) {
-                    
-                    self.sectorClick(obj.currentClickedItem);
-                }
-            }
-        }];
+    }];
+    //计算触摸点到中心点距离
+    CGFloat centerX = CGRectGetMidX(self.bounds);
+    CGFloat centerY = CGRectGetMidY(self.bounds);
+    CGFloat toCenterDistance = sqrt(pow((location.x - centerX), 2) + pow((location.y - centerY), 2));
+    NSMutableArray *maybeClickedRegion = [NSMutableArray array];
+    [_sectorItemArr enumerateObjectsUsingBlock:^(SectorItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (toCenterDistance <= obj.itemRadius) {
+            [maybeClickedRegion addObject:obj];
+        }
+    }];
+    //计算触摸点和中心点连线的角度
+    CGFloat rads = acos((location.x - centerX) / toCenterDistance);
+    if (location.y < centerY) {
+        
+        rads = 2 * M_PI - rads;
     }
+    [maybeClickedRegion enumerateObjectsUsingBlock:^(SectorItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (rads >= obj.startAngle && rads < obj.endAngle) {
+            //所点击的扇形
+            if (self.sectorClick) {
+              
+                self.sectorClick(obj.currentClickedItem);
+            }
+        }
+    }];
+    
 }
-
--(void)drawTextInRect:(CGRect)rect text:(NSString *)text context:(CGContextRef)ctx{
-    
-    
-    
-}
-
 @end
