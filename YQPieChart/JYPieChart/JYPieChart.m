@@ -82,8 +82,9 @@
     
     CGFloat sumTotal = [[itemValueArr valueForKeyPath:@"@sum.floatValue"] floatValue];
 //    CGFloat maxItemValue = [[itemValueArr valueForKeyPath:@"@max.floatValue"] floatValue];
-//    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];    
-    __block CGFloat stepSize = 0;
+//    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];
+    //从-M_PI_4处开始绘制扇形
+    __block CGFloat stepSize = -M_PI_4;
     if (sumTotal != 0.0) {
         [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
@@ -95,7 +96,6 @@
             CGContextMoveToPoint(ctx, centerX, centerY);
             CGFloat piePercent = obj.value / sumTotal;
             itemRadius = radius * pieCharItem.radiusRate;
-            
             CGContextAddArc(ctx, centerX, centerY, itemRadius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
             SectorItem *sectorItem = [SectorItem new];
             sectorItem.itemRadius = itemRadius;
