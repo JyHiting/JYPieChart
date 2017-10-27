@@ -13,7 +13,8 @@
 typedef NS_ENUM(NSInteger,PieChartType){
 
     PieChartTypeNormal,//普通饼状图
-    PieChartTypeNightingale//南丁格尔图
+    PieChartTypeNightingale,//南丁格尔图
+    PieChartTypeAnnulus//圆环
 };
 
 

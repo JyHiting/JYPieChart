@@ -34,12 +34,13 @@
     };
     pieChart1.isShowCenterCircle = YES;
     pieChart1.centerCircleTitle = @"80%";
-    pieChart1.pieChartType = PieChartTypeNightingale;
+    pieChart1.pieChartType = PieChartTypeAnnulus;
     NSMutableArray *itemArr = [NSMutableArray array];
     for (int index = 0; index < 5; index ++) {
         
         JYPieChartItem *item = [JYPieChartItem new];
         item.value = 100 + index * 5;
+        item.annulus_width = 10 + 10 * index;
         item.name = [NSString stringWithFormat:@"测试%d",index];
         item.sectorBgColor = [self randomColor];
         [itemArr addObject:item];

@@ -14,6 +14,8 @@
 @property(nonatomic,assign)double value;
 @property(nonatomic,copy)NSString *name;
 @property(nonatomic,strong)UIColor *sectorBgColor;
+//圆环宽度
+@property(nonatomic,assign)CGFloat annulus_width;
 //折线的宽度
 @property(nonatomic,assign)CGFloat line_width;
 //折线第一段的长度

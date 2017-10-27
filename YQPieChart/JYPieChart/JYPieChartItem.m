@@ -14,6 +14,7 @@
 
     if (self = [super init]) {
         
+        _annulus_width = 10;
         _line1_lenght = 10;
         _line2_lenght = 15;
         _line_width = 0.5;

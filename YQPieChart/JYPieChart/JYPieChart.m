@@ -81,122 +81,130 @@
     }];
     
     CGFloat sumTotal = [[itemValueArr valueForKeyPath:@"@sum.floatValue"] floatValue];
-//    CGFloat maxItemValue = [[itemValueArr valueForKeyPath:@"@max.floatValue"] floatValue];
-//    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];
     //从M_PI_2处开始绘制扇形
     __block CGFloat stepSize = M_PI_2;
     if (sumTotal != 0.0) {
         [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            JYPieChartItem *pieCharItem = [_valueArr objectAtIndex:idx];
-            
-            CGFloat itemRadius = 0;
-            //绘制扇形
-            CGContextSetLineWidth(ctx, 0);
-            CGContextMoveToPoint(ctx, centerX, centerY);
-            CGFloat piePercent = obj.value / sumTotal;
-            itemRadius = radius * pieCharItem.radiusRate;
-            CGContextAddArc(ctx, centerX, centerY, itemRadius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
-            SectorItem *sectorItem = [SectorItem new];
-            sectorItem.itemRadius = itemRadius;
-            sectorItem.startAngle = stepSize;
-            sectorItem.endAngle = stepSize + 2 * M_PI * piePercent;
-            sectorItem.currentClickedItem = [_valueArr objectAtIndex:idx];
-            [_sectorItemArr addObject:sectorItem];
-            
-            CGContextSetFillColorWithColor(ctx, [_valueArr objectAtIndex:idx].sectorBgColor.CGColor);
-            CGContextClosePath(ctx);
-            CGContextDrawPath(ctx, kCGPathFillStroke);
-            
-            //绘制折线
-            CGPoint lineBeginPoint = CGPointMake(centerX + itemRadius *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + itemRadius *sinf(stepSize + 2 * M_PI * piePercent / 2));
-            CGPoint lineMiddlePoint = CGPointMake(centerX + (itemRadius + pieCharItem.line1_lenght) *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + (itemRadius + pieCharItem.line1_lenght) *sinf(stepSize + 2 * M_PI * piePercent / 2));
-            CGPoint lineEndPoint;
-            CGRect titleRect;
-            if (lineMiddlePoint.x > centerX) {
-                
-                //折线在中心轴右边
-                lineEndPoint = CGPointMake(lineMiddlePoint.x + pieCharItem.line2_lenght, lineMiddlePoint.y);
-                
-                UILabel *title = [UILabel new];
-                title.font = [UIFont systemFontOfSize:15];
-                title.text = pieCharItem.name;
-                CGFloat titleWidth = [title widthOfSizeToFit];
-                CGFloat titleHeight = [title heightOfSizeToFitWith:titleWidth];
-                titleRect = CGRectMake(lineEndPoint.x, lineEndPoint.y - titleHeight / 2, titleWidth, titleHeight);
+            if (self.pieChartType == PieChartTypeAnnulus) {
+               
+                //绘制圆环
+                CGContextSetLineWidth(ctx, obj.annulus_width);
+                [obj.sectorBgColor setStroke];
+                CGFloat piePercent = obj.value / sumTotal;
+                CGContextAddArc(ctx, centerX, centerY, radius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
+                CGContextStrokePath(ctx);
+                stepSize += 2 * M_PI * piePercent;
             }else{
                 
-                //折线在中心轴左边
-                lineEndPoint = CGPointMake(lineMiddlePoint.x - pieCharItem.line2_lenght, lineMiddlePoint.y);
+                //绘制扇形
+                JYPieChartItem *pieCharItem = [_valueArr objectAtIndex:idx];
+                CGFloat itemRadius = 0;
+                //绘制扇形
+                CGContextSetLineWidth(ctx, 0);
+                CGContextMoveToPoint(ctx, centerX, centerY);
+                CGFloat piePercent = obj.value / sumTotal;
+                itemRadius = radius * pieCharItem.radiusRate;
+                CGContextAddArc(ctx, centerX, centerY, itemRadius,stepSize,stepSize + 2 * M_PI * piePercent, 0);
+                SectorItem *sectorItem = [SectorItem new];
+                sectorItem.itemRadius = itemRadius;
+                sectorItem.startAngle = stepSize;
+                sectorItem.endAngle = stepSize + 2 * M_PI * piePercent;
+                sectorItem.currentClickedItem = [_valueArr objectAtIndex:idx];
+                [_sectorItemArr addObject:sectorItem];
+                CGContextSetFillColorWithColor(ctx, [_valueArr objectAtIndex:idx].sectorBgColor.CGColor);
+                CGContextClosePath(ctx);
+                CGContextDrawPath(ctx, kCGPathFillStroke);
                 
-                UILabel *title = [UILabel new];
-                title.font = [UIFont systemFontOfSize:15];
-                title.text = pieCharItem.name;
-                CGFloat titleWidth = [title widthOfSizeToFit];
-                CGFloat titleHeight = [title heightOfSizeToFitWith:titleWidth];
-                titleRect = CGRectMake(lineEndPoint.x - titleWidth, lineEndPoint.y - titleHeight / 2, titleWidth, titleHeight);
-            }
-            
-            [pieCharItem.line1BgColor setStroke];
-            CGContextSetLineWidth(ctx, pieCharItem.line_width);
-            CGContextMoveToPoint(ctx,lineBeginPoint.x,lineBeginPoint.y);
-            CGContextAddLineToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
-            
-            CGContextDrawPath(ctx, kCGPathStroke);
-            [pieCharItem.line2BgColor setStroke];
-            CGContextSetLineWidth(ctx, pieCharItem.line_width);
-            CGContextMoveToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
-            CGContextAddLineToPoint(ctx,lineEndPoint.x,lineEndPoint.y);
-            CGContextDrawPath(ctx, kCGPathStroke);
-            
-            //item标题
-            [pieCharItem.name drawInRect:titleRect withAttributes:pieCharItem.itemTitleAttributesDic];
-            [_titlesRectArr addObject:[NSValue valueWithCGRect:titleRect]];
-            
-            //是否展示中心圆
-            CGContextSetLineWidth(ctx, 0);
-            [_centerCircleBgColor setFill];
-            if (_isShowCenterCircle) {
-                
-                switch (_pieChartType) {
-                    case PieChartTypeNormal:{
-                        
-                        //普通饼状图
-                        if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
-                            
-                            CGContextAddArc(ctx, centerX, centerY, radius - 10, 0, 2 *M_PI, 0);
-                            
-                        }else{
-                            
-                            CGContextAddArc(ctx, centerX, centerY, _centerCircleRadius, 0, 2 *M_PI, 0);
-                        }
-                    }
-                        break;
-                    case PieChartTypeNightingale:{
-                        
-                        //南丁格尔饼状图
-                        if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
-                            
-                            CGContextAddArc(ctx, centerX, centerY, radius * pieCharItem.radiusRate - 10, 0, 2 *M_PI, 0);
-                            
-                        }else{
-                            
-                            CGContextAddArc(ctx, centerX, centerY, _centerCircleRadius, 0, 2 *M_PI, 0);
-                        }
-                    }
-                        break;
-                    default:
-                        break;
+                //绘制折线
+                CGPoint lineBeginPoint = CGPointMake(centerX + itemRadius *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + itemRadius *sinf(stepSize + 2 * M_PI * piePercent / 2));
+                CGPoint lineMiddlePoint = CGPointMake(centerX + (itemRadius + pieCharItem.line1_lenght) *cosf(stepSize + 2 * M_PI * piePercent / 2), centerY + (itemRadius + pieCharItem.line1_lenght) *sinf(stepSize + 2 * M_PI * piePercent / 2));
+                CGPoint lineEndPoint;
+                CGRect titleRect;
+                if (lineMiddlePoint.x > centerX) {
+                    
+                    //折线在中心轴右边
+                    lineEndPoint = CGPointMake(lineMiddlePoint.x + pieCharItem.line2_lenght, lineMiddlePoint.y);
+                    
+                    UILabel *title = [UILabel new];
+                    title.font = [UIFont systemFontOfSize:15];
+                    title.text = pieCharItem.name;
+                    CGFloat titleWidth = [title widthOfSizeToFit];
+                    CGFloat titleHeight = [title heightOfSizeToFitWith:titleWidth];
+                    titleRect = CGRectMake(lineEndPoint.x, lineEndPoint.y - titleHeight / 2, titleWidth, titleHeight);
+                }else{
+                    
+                    //折线在中心轴左边
+                    lineEndPoint = CGPointMake(lineMiddlePoint.x - pieCharItem.line2_lenght, lineMiddlePoint.y);
+                    
+                    UILabel *title = [UILabel new];
+                    title.font = [UIFont systemFontOfSize:15];
+                    title.text = pieCharItem.name;
+                    CGFloat titleWidth = [title widthOfSizeToFit];
+                    CGFloat titleHeight = [title heightOfSizeToFitWith:titleWidth];
+                    titleRect = CGRectMake(lineEndPoint.x - titleWidth, lineEndPoint.y - titleHeight / 2, titleWidth, titleHeight);
                 }
                 
-                CGContextDrawPath(ctx, kCGPathFill);
-                CGSize textSize = [self.centerCircleTitle sizeWithAttributes:self.centerTitleAttributesDic];
-                [self.centerCircleTitle drawInRect:CGRectMake(centerX - textSize.width / 2, centerY - textSize.height / 2, textSize.width, textSize.height) withAttributes:self.centerTitleAttributesDic];
+                [pieCharItem.line1BgColor setStroke];
+                CGContextSetLineWidth(ctx, pieCharItem.line_width);
+                CGContextMoveToPoint(ctx,lineBeginPoint.x,lineBeginPoint.y);
+                CGContextAddLineToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
                 
+                CGContextDrawPath(ctx, kCGPathStroke);
+                [pieCharItem.line2BgColor setStroke];
+                CGContextSetLineWidth(ctx, pieCharItem.line_width);
+                CGContextMoveToPoint(ctx,lineMiddlePoint.x,lineMiddlePoint.y);
+                CGContextAddLineToPoint(ctx,lineEndPoint.x,lineEndPoint.y);
+                CGContextDrawPath(ctx, kCGPathStroke);
+                
+                //item标题
+                [pieCharItem.name drawInRect:titleRect withAttributes:pieCharItem.itemTitleAttributesDic];
+                [_titlesRectArr addObject:[NSValue valueWithCGRect:titleRect]];
+                
+                //是否展示中心圆
+                CGContextSetLineWidth(ctx, 0);
+                [_centerCircleBgColor setFill];
+                if (_isShowCenterCircle) {
+                    
+                    switch (_pieChartType) {
+                        case PieChartTypeNormal:{
+                            
+                            //普通饼状图
+                            if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
+                                
+                                CGContextAddArc(ctx, centerX, centerY, radius - 10, 0, 2 *M_PI, 0);
+                                
+                            }else{
+                                
+                                CGContextAddArc(ctx, centerX, centerY, _centerCircleRadius, 0, 2 *M_PI, 0);
+                            }
+                        }
+                            break;
+                        case PieChartTypeNightingale:{
+                            
+                            //南丁格尔饼状图
+                            if (_centerCircleRadius >= radius * pieCharItem.radiusRate) {
+                                
+                                CGContextAddArc(ctx, centerX, centerY, radius * pieCharItem.radiusRate - 10, 0, 2 *M_PI, 0);
+                                
+                            }else{
+                                
+                                CGContextAddArc(ctx, centerX, centerY, _centerCircleRadius, 0, 2 *M_PI, 0);
+                            }
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    CGContextDrawPath(ctx, kCGPathFill);
+                    CGSize textSize = [self.centerCircleTitle sizeWithAttributes:self.centerTitleAttributesDic];
+                    [self.centerCircleTitle drawInRect:CGRectMake(centerX - textSize.width / 2, centerY - textSize.height / 2, textSize.width, textSize.height) withAttributes:self.centerTitleAttributesDic];
+                    
+                }
+                
+                stepSize += 2 * M_PI * piePercent;
             }
-            
-            stepSize += 2 * M_PI * piePercent;
-            
         }];
     }
 }
