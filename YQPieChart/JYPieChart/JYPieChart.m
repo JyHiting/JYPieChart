@@ -83,8 +83,8 @@
     CGFloat sumTotal = [[itemValueArr valueForKeyPath:@"@sum.floatValue"] floatValue];
 //    CGFloat maxItemValue = [[itemValueArr valueForKeyPath:@"@max.floatValue"] floatValue];
 //    CGFloat minItemValue = [[itemValueArr valueForKeyPath:@"@min.floatValue"] floatValue];
-    //从-M_PI_4处开始绘制扇形
-    __block CGFloat stepSize = -M_PI_4;
+    //从M_PI_2处开始绘制扇形
+    __block CGFloat stepSize = M_PI_2;
     if (sumTotal != 0.0) {
         [_valueArr enumerateObjectsUsingBlock:^(JYPieChartItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
